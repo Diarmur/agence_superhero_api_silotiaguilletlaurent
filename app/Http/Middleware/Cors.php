@@ -21,7 +21,7 @@ class Cors
 
         if (in_array($origin, $allowedOrigins)) {
             return $next($request)
-                ->header('Access-Control-Allow-Origin', $origin)
+                ->header('Access-Control-Allow-Origin', '*')
                 ->header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
         }
 
