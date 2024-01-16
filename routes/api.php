@@ -39,9 +39,10 @@ Route::get('/guest', [GuestController::class,'index'])
     ->middleware('guest')
     ->name('guest');
 
-
+    Route::get('/hero', [HeroController::class, 'index'])
+        ->middleware(['guest','web']);
 Route::middleware(['web','auth:sanctum'])->group(function () {
-    Route::get('/hero', [HeroController::class, 'index']);
+    
     Route::get('/hero/{id}', [HeroController::class, 'show']);
     Route::post('/hero/create', [HeroController::class, 'store']);
 
